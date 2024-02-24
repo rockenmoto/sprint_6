@@ -14,5 +14,5 @@ class TestMainPage:
                               ("6", ExpectedAnswer.answer_6),
                               ("7", ExpectedAnswer.answer_7)
                               ])
-    def test_actual_answer_for_question_true(self, main_page, number_of_question, expected_result):
-        assert main_page.click_to_question_and_check_answer(number_of_question, expected_result)
+    def test_answer_for_question_faq_list_true(self, main_page, number_of_question, expected_result):
+        assert main_page.check_answer_for_question(number_of_question, expected_result)
