@@ -21,3 +21,7 @@ class BasePage:
     def scroll_to_element(self, locator):
         element = self.wait_for_element(locator)
         self.driver.execute_script("arguments[0].scrollIntoView();", element)
+
+    def fill_in_field(self, locator, text):
+        element = self.wait_for_element(locator)
+        element.send_keys(text)
