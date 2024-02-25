@@ -1,8 +1,6 @@
 from pages.base_page import BasePage
 from selenium.webdriver.common.by import By
 
-from pages.order_page import OrderPage
-
 
 class MainPage(BasePage):
     question_locator = [By.XPATH, ".//div[@id='accordion__heading-{}']"]

@@ -14,6 +14,7 @@ class OrderPage(BasePage):
     next_button = [By.XPATH, ".//button[text() = 'Далее']"]
     bottom_button = [By.XPATH, './/button[contains(@class, "ra12g Button") and text() = "Заказать"]']
     yes_button = [By.XPATH, './/button[text() = "Да"]']
+    show_status_button = [By.XPATH, './/button[text() = "Посмотреть статус"]']
 
     name_field = [By.XPATH, ".//input[@placeholder = '* Имя']"]
     last_name_field = [By.XPATH, ".//input[@placeholder = '* Фамилия']"]
@@ -40,7 +41,9 @@ class OrderPage(BasePage):
 
     def check_successful_order(self):
         self.click_on_element(self.yes_button)
-        return self.get_text_element(self.order_placed_title)
+        successful_text = self.get_text_element(self.order_placed_title)
+        self.click_on_element(self.show_status_button)
+        return successful_text
 
     def select_metro_station(self, metro):
         method, locator = self.metro_value
