@@ -1,3 +1,5 @@
+import allure
+
 from pages.base_page import BasePage
 from selenium.webdriver.common.by import By
 
@@ -9,6 +11,7 @@ class MainPage(BasePage):
     top_button = [By.XPATH, './/button[contains(@class, "ra12g") and text() = "Заказать"]']
     bottom_button = [By.XPATH, './/button[contains(@class, "ra12g Button") and text() = "Заказать"]']
 
+    @allure.step('Сравниваем вопрос с ответом из раздела "Вопросы о важном"')
     def check_answer_for_question(self, number_of_question, expected_result):
         method, locator = self.question_locator
         quest_locator = locator.format(number_of_question)
@@ -20,6 +23,7 @@ class MainPage(BasePage):
 
         return self.get_text_element((method, answer_locator)) == expected_result
 
+    @allure.step('Клик на кнопку "Заказать"')
     def click_on_the_order_button(self, is_up_button):
         if is_up_button:
             self.click_on_element(self.top_button)
